@@ -3,14 +3,17 @@
 # Account Logins for seeded users
 ### Admin user
 username = 'admin1@gmail.com'
+
 password = 'password'
 
 ### Standard user
 username = 'standard@gmail.com'
+
 password = 'password'
 
 ### Premium user
 username = 'premium@gmail.com'
+
 password = 'password'
 
 
