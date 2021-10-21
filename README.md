@@ -1,22 +1,4 @@
 # WeSchedule
----
-# Account Logins for seeded users
-### Admin user
-username = 'admin1@gmail.com'
-
-password = 'password'
-
-### Standard user
-username = 'standard@gmail.com'
-
-password = 'password'
-
-### Premium user
-username = 'premium@gmail.com'
-
-password = 'password'
-
-
 
 # How to Install and Run
 ### Install Dependancies
@@ -36,4 +18,22 @@ rake db:seed
 ### Run Server
 Run server:
 bundle exec rails s
+
+# Account Logins for seeded users
+### Admin user
+username = 'admin1@gmail.com'
+
+password = 'password'
+
+### Standard user
+username = 'standard@gmail.com'
+
+password = 'password'
+
+### Premium user
+username = 'premium@gmail.com'
+
+password = 'password'
+
+
 
