@@ -1,0 +1,12 @@
+- content_for :title, "feedback"
+= stylesheet_link_tag "dashboard.css"
+= stylesheet_link_tag "reviews.css"
+= javascript_include_tag "https://www.gstatic.com/charts/loader.js" 
+
+.wrapper
+  = render 'sidebar'
+  .container-feedback
+    .bg-white.rounded.shadow-sm.p-4.mb-4.restaurant-detailed-ratings-and-reviews
+      
+      = render 'feedbacks/index'
+        

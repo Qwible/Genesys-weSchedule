@@ -1,0 +1,53 @@
+
+%h3.mb-4 Positive Feedback
+%table
+  %thead
+    %tr
+      %th Comment
+
+  %tbody
+  - if @positive_feedback != nil
+    %tbody
+      = render @positive_feedback
+    %tbody
+      = will_paginate @positive_feedback
+
+
+
+</br>
+%hr
+
+</br>
+%h3.mb-4 Negative Feedback
+
+%table
+  %thead
+    %tr
+      %th Comment
+
+  %tbody
+  - if @negative_feedback != nil
+    %tbody
+      = render @negative_feedback
+    %tbody
+      = will_paginate @negative_feedback
+
+
+
+
+</br>
+%hr
+
+</br>
+%h3.mb-4 Non-specified / Neutral
+
+%table
+  %thead
+    %tr
+      %th Comment
+  %tbody
+  - if @neutral_feedback != nil
+    %tbody
+      = render @neutral_feedback
+    %tbody
+      = will_paginate @neutral_feedback

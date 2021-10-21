@@ -1,0 +1,515 @@
+
+/* sign in FORM */
+
+#wrap{
+    background-image:url('https://download.hipwallpaper.com/desktop/1920/1080/62/26/HKoPzd.jpg');
+    background-size:cover;
+    background-position:50% 50%;
+    background-repeat:no-repeat;
+    vertical-align:middle;
+
+}
+.accounts{
+  width:100%;
+  margin:auto;
+  display:block;
+}
+label{
+  width:32%;
+  height:100% !important;
+}
+.labels{
+  margin:auto;
+  display:block;
+  position:relative;
+  width:fit-content;
+}
+.divider{
+  width:100%;
+  height:50px;
+  display:block;
+}
+.ul-free{
+  height:175px;
+}
+.free-span{
+  font-size:2.7em !important;
+}
+.no-bs-validation .is-valid, .no-bs-validation .is-invalid {
+	 border-color: rgba(0,0,0,0.12);
+	 background-image: inherit;
+}
+ .no-bs-validation .is-valid:focus, .no-bs-validation .is-invalid:focus {
+	 border-color: lightseagreen;
+	 box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+   z-index: 2;
+}
+.free-ul{
+  font-size:10px;
+}
+.card-free{
+  height:365px;
+}
+.free-card{
+  height:100%;
+}
+.cancel-account{
+  width:fit-content;
+  float:right;
+  position:relative;
+  margin-top:5px;
+  color:white !important;
+}
+.signup{
+  width:fit-content;
+  display:inline-block;
+  float:right;
+}
+.back-button{
+  display:inline-block;
+}
+.cancel-account a{
+  padding-top:0px !important;
+  text-decoration:none;
+  color:white !important;
+}
+#logreg-forms{
+    width:1000px;
+    margin: 0px auto 10vh;
+    background-color:#f3f3f3;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+#logreg-forms form {
+    width: 100%;
+    max-width: 950px;
+    padding: 10px;
+    margin: auto;
+}
+#logreg-forms .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+#logreg-forms .form-control:focus {
+  z-index: 2;
+  border-color: lightseagreen;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ }
+#logreg-forms .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+#logreg-forms .form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#logreg-forms .social-login{
+    width:390px;
+    margin:0 auto;
+    margin-bottom: 14px;
+}
+#logreg-forms .social-btn{
+    font-weight: 100;
+    color:white;
+    width:190px;
+    font-size: 0.9rem;
+}
+
+#logreg-forms a{
+    display: block;
+    padding-top:10px;
+    color:lightseagreen;
+}
+
+#logreg-form .lines{
+    width:200px;
+    border:1px solid red;
+}
+
+
+#logreg-forms button[type="submit"]{ margin-top:10px; }
+
+#logreg-forms .facebook-btn{  background-color:#3C589C; }
+
+#logreg-forms .google-btn{ background-color: #DF4B3B; }
+
+#logreg-forms .form-reset, #logreg-forms .form-signup{ display: none; }
+
+#logreg-forms .form-signup .social-btn{ width:210px; }
+
+#logreg-forms .form-signup input { margin-bottom: 2px;}
+
+.form-signup .social-login{
+    width:210px;
+    margin: 0 auto;
+}
+#footer{
+    background: white;
+}
+/* Mobile */
+
+@media screen and (max-width:500px){
+    #logreg-forms{
+        width:300px;
+    }
+
+    #logreg-forms  .social-login{
+        width:200px;
+        margin:0 auto;
+        margin-bottom: 10px;
+    }
+    #logreg-forms  .social-btn{
+        font-size: 1.3rem;
+        font-weight: 100;
+        color:white;
+        width:200px;
+        height: 56px;
+
+    }
+    #logreg-forms .social-btn:nth-child(1){
+        margin-bottom: 5px;
+    }
+    #logreg-forms .social-btn span{
+        display: none;
+    }
+    #logreg-forms  .facebook-btn:after{
+        content:'Facebook';
+    }
+
+    #logreg-forms  .google-btn:after{
+        content:'Google+';
+    }
+
+}
+#inputEmail.form-control{
+    margin-bottom:-10px;
+}
+
+
+.pricing-options {
+    max-width: 960px;
+
+  }
+
+
+  /*
+   * Custom translucent site header
+   */
+
+  .site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .site-header a {
+    color: #999;
+    transition: ease-in-out color .15s;
+  }
+  .site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /*
+   * Dummy devices (replace them with your own or something else entirely!)
+   */
+
+  .product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+
+  .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+
+
+  /*
+   * Extra utilities
+   */
+
+  .border-top { border-top: 1px solid #e5e5e5; }
+  .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+  .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+  .flex-equal > * {
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      -ms-flex: 1;
+      -webkit-box-flex: 1;
+      flex: 1;
+    }
+  }
+
+  .overflow-hidden { overflow: hidden; }
+  .feature-container{
+    max-width:1700px;
+    margin: auto;
+  }
+
+.bg-success{
+  background: linear-gradient(to right, #21ddc6 0%, #00eab6 100%);
+}
+.bg-success-student{
+  background: linear-gradient(to right,rgba(30, 8, 112, 0.75) 0%, rgb(7, 1, 94) 100%);
+}
+.border-success{
+  border-color:#21ddc6;
+}
+.border-success-student{
+  border-color:#2198dd;
+}
+.pricing{
+  font-family: "Muli",sans-serif;
+  height: 50px;
+  text-align: center;
+  line-height: 1;
+  margin: 25px 0 0px;
+  color: #272d45;
+  margin-bottom:32px;
+
+  }
+  .pricing-currency{
+    display: inline-block;
+    font-size: 2.027em;
+    margin-top: 0.25em;
+    vertical-align: top;
+  }
+  .pricing-value{
+    font-size: 3.247rem;
+    font-weight: 600;
+    box-sizing: border-box;
+  }
+  .pricing-period{
+    box-sizing: border-box;
+    text-align: center;
+  line-height: 1;
+  }
+.pricing-li{
+  padding-left:30px;
+  background: no-repeat top left url("https://www.okendo.io/icons/check.svg");
+  margin-bottom:8px;
+  font-size:.889rem;
+  box-sizing: border-box;
+  text-align:left;
+  list-style:none;
+  line-height: 1.6;
+  font-family: "Noto Sans",sans-serif;
+color: #8f9097;
+}
+.inner-li{
+  list-style:none;
+}
+.o-list{
+  margin-bottom:32px;
+  -webkit-box-flex: 1;
+  flex:1;
+  padding:0;
+  margin:auto;
+}
+.card-body{
+  padding:0;
+  margin:0;
+  margin-top:20px;
+}
+.pricing-wrap{
+  background: rgb(200,200,200);
+  background: linear-gradient(317deg, rgba(200,200,200,1) 35%, rgba(217,217,217,1) 100%);
+}
+.pricing-container{
+  max-width:900px;
+  margin:auto;
+}
+.card-body{
+  padding: 0px 16px 16px 16px;
+}
+.card{
+  margin:20px 5px 20px 5px;
+}
+.inner-li a{
+  font-size: .889rem;
+text-align: left;
+list-style: none;
+line-height: 1.6;
+font-family: "Noto Sans",sans-serif;
+color: #8f9097;
+}
+.black-section{
+  display: flex;
+padding-right: 15px;
+padding-left: 15px;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-webkit-flex-direction: column;
+-ms-flex-direction: column;
+flex-direction: column;
+-webkit-box-align: center;
+-webkit-align-items: center;
+-ms-flex-align: center;
+align-items: center;
+background-color: #1d2135;
+text-align: center;
+font-family: sans-serif;
+color: #4e4e4e;
+font-size: 15px;
+line-height: 24px;
+}
+.spacing-wrapper-xlarge{
+  margin-top: 64px;
+  box-sizing: border-box;
+}
+.spacing-wrapper-medium{
+  margin-top: 32px;
+  box-sizing: border-box;
+}
+
+.white-header{
+  position: relative;
+  text-align: center;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: proxima-nova,sans-serif;
+  font-size: 36px;
+  line-height: 43px;
+  font-weight: 300;
+}
+
+.four-row{
+  align-items: center;
+  -webkit-box-align: center;
+  display: flex;
+  justify-content: center;
+  text-align:center;
+}
+.four-row-item{
+  display: block;
+width: 250px;
+margin-bottom: 64px;
+padding-right: 15px;
+padding-left: 15px;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-webkit-box-pack: start;
+-webkit-box-align: center;
+align-self:stretch;
+}
+.four-row-image{
+  height:40px;
+  border:0;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+.white{
+  color: white;
+}
+.headline-eyebrow{
+  font-size: 13px;
+font-weight: 700;
+line-height: 1.2;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-bottom:20px;
+}
+.headline-small{
+  font-size: 40px;
+font-weight: 700;
+line-height: 1.1;
+letter-spacing: -0.03em;
+margin-bottom:20px;
+}
+.pt-8{
+  padding-top:130px;
+}
+.white-wrap{
+  background-color: white;
+}
+.img-fluid{
+  max-width: 100%;
+height: auto;
+}
+.bg-cx{
+  background-image: url('https://www.qualtrics.com/m/assets/wp-content/uploads/2020/05/cx-security@2x.png');
+  background-color: #21dbaa;
+}
+.bg-btn{
+  color:white;
+  padding:0;
+  background:none;
+  transition:unset;
+  border-radius:0;
+  white-space: nowrap;
+display: inline-block;
+position: relative;
+border: solid transparent 2px;
+text-transform: uppercase;
+text-align: center;
+font-weight: 600;
+letter-spacing: 1px;
+overflow: hidden;
+z-index: 0;
+transition: color 0.7s ease, background-color 0.5s ease;
+font-size: .75rem;
+line-height: .9;
+padding-top: .5rem;
+}
+.bg-btn::after, .btn.btn-arrow.btn-arrow-left::before {
+  content: '';
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  vertical-align: text-top;
+  display: inline-block;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease;
+  margin-left: 4px;
+  background-image: url("https://s3.amazonaws.com/qualtrics-www/arrow-white.svg");
+}
+
+
+.card-input-element:checked+.card{
+     box-shadow: 0 0 4px 4px #4d6da1 !important;
+ }
+
+.card-input-element+.card:hover {
+  cursor: pointer;
+}
+
+.card-input-element {
+    display: none;
+}

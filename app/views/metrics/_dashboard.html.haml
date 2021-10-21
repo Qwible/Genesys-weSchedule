@@ -1,0 +1,211 @@
+.wrapper
+  = render 'sidebar'
+  .main-panel
+
+    .content
+      .row
+        .col-lg-3.col-md-6.col-sm-6
+          .card.card-stats
+            .card-body
+              .row
+                .col-5.col-md-4
+                  .icon-big.text-center.icon-warning
+
+                    %img{:src => "https://icon-library.com/images/register-icon-png/register-icon-png-8.jpg"}
+                .col-7.col-md-8
+                  .numbers#total_reg
+                    %p.card-category Total registrations
+                    = Registration.count()
+                    %p
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-refresh
+                Updated Now
+        .col-lg-3.col-md-6.col-sm-6
+          .card.card-stats
+            .card-body
+              .row
+                .col-5.col-md-4
+                  .icon-big.text-center.icon-warning
+                    %img{:src => "https://icon-library.com/images/people-circle-icon/people-circle-icon-7.jpg"}
+                .col-7.col-md-8
+                  .numbers#total_visit
+                    %p.card-category Total Landing page Visits
+                    = Visit.count()
+                    %p
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-calendar-o
+                Last day
+        .col-lg-3.col-md-6.col-sm-6
+          .card.card-stats
+            .card-body
+              .row
+                .col-5.col-md-4
+                  .icon-big.text-center.icon-warning
+                    %img{:src => "https://free-icon-rainbow.com/i/icon_00500/icon_005000_256.jpg"}
+                .col-7.col-md-8
+                  .numbers#total_click
+                    %p.card-category Total user clicks on site
+                    %p.card-title
+                      = LinkClick.count()
+                    %p
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-clock-o
+                In the last hour
+        .col-lg-3.col-md-6.col-sm-6
+          .card.card-stats
+            .card-body
+              .row
+                .col-5.col-md-4
+                  .icon-big.text-center.icon-warning
+                    %img{:src => "https://cdn0.iconfinder.com/data/icons/tuts/256/shareit.png"}
+
+                .col-7.col-md-8
+                  .numbers#total_share
+                    %p.card-category Total feature shares
+                    %p.card-title
+                      = LinkClick.where("link_css_id ILIKE ?", "%share%").count()
+                    %p
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-refresh
+                Updated now
+      .row
+        .col-md-12
+          .card
+            .card-header
+              %h5.card-title Daily landing page visits
+              %p.card-category Lifetime performance
+            .card-body
+              = line_chart Visit.group_by_day(:created_at).count
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-history
+                Updated Now
+      .row
+        .col-md-12
+          .card
+            .card-header
+              %h5.card-title Most popular shared features
+              %p.card-category Lifetime performance
+            .card-body
+              = bar_chart LinkClick.where("link_css_id ILIKE ?", "%share%").group(:link_name).count
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-history
+                Updated Now
+      .row
+        .col-md-4
+          .card
+            .card-header
+              %h5.card-title Registration Statistics
+              %p.card-category Registrations by Tier
+            .card-body
+              = column_chart Registration.group("tier").count()
+            .card-footer
+              .legend
+                %i.fa.fa-circle.text-red
+                Pro
+                %i.fa.fa-circle.text-blue
+                Free
+              %hr/
+              .stats
+                %i.fa.fa-calendar
+
+
+        .col-md-8
+          .card.card-chart
+            .card-header
+              %h5.card-title Daily Registrations
+              %p.card-category Lifetime Performance
+            .card-body
+
+              = line_chart Registration.group_by_day(:created_at).count
+
+              .card-stats
+                %i.fa.fa-check
+                Data information certified
+      .row
+        .col-md-6
+          .card
+            .card-header
+              %h5.card-title List of Visits
+              %p.card-category Visit data
+            .card-body
+              = render @visits
+              = will_paginate @visits
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-history
+                Updated Now
+        .col-md-6
+          .card
+            .card-header
+              %h5.card-title List of Registrations
+              %p.card-category Registration data
+            .card-body
+              %table.table.table-hover
+                %thead
+                  %tr
+                    %th Time
+                    %th Email
+                    %th Tier
+                %tbody
+                  = render @registrations
+                  = will_paginate @registrations
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-history
+                Updated Now
+
+
+     
+          .card.card-stats
+            .card-body
+              .row
+                .col-5.col-md-4
+                  .icon-big.text-center.icon-warning
+                    %img{:src => "https://cdn0.iconfinder.com/data/icons/tuts/256/shareit.png"}
+
+                .col-7.col-md-8
+                  .numbers#total_share
+                    %p.card-category Total Timetable Edits
+                    %p.card-title
+                      = LinkClick.where("link_css_id ILIKE ?", "edit-tasks-link").count()
+                    %p
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-refresh
+                Updated now
+
+
+          .card.card-stats
+            .card-body
+              .row
+                .col-5.col-md-4
+                  .icon-big.text-center.icon-warning
+                    %img{:src => "https://cdn0.iconfinder.com/data/icons/tuts/256/shareit.png"}
+
+                .col-7.col-md-8
+                  .numbers#total_share
+                    %p.card-category Total Timetables Generated
+                    %p.card-title
+                      = LinkClick.where("link_css_id ILIKE ?", "generate-timetable-link").count()
+                    %p
+            .card-footer
+              %hr/
+              .stats
+                %i.fa.fa-refresh
+                Updated now
+

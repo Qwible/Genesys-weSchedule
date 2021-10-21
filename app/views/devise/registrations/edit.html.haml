@@ -1,0 +1,144 @@
+= stylesheet_link_tag "signup.css"
+
+#logreg-forms.no-bs-validation
+  %br/
+  .form-signin
+    %h1.h3.mb-3.font-weight-normal{:style => "text-align: center"} My Profile
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = f.error_notification
+      .form-inputs
+        #accordion.panel-group
+          .panel.panel-default
+            .panel-heading
+              %h4.panel-title
+                %p{style: "margin-bottom: 0px"} Email:
+                %a.accordion-toggle.collapsed{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree"}= @user.email
+            #collapseThree.panel-collapse.collapse.in
+              .panel-body
+                = f.input :email, required: true, autofocus: true, label: ""
+                - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                  %p
+                    Currently waiting confirmation for: #{resource.unconfirmed_email}
+          .panel.panel-default
+            .panel-heading
+              %h4.panel-title
+                %p{style: "margin-bottom: 0px"} Account Type:
+                %a.accordion-toggle.collapsed{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}= @user.account_type
+            #collapseTwo.panel-collapse.collapse.in
+              .panel-body
+                %h3{style: "text-align: center; margin-top: 50px"} Select Account Type
+                %label
+                  = f.radio_button :account_type,"Starter", class: "card-input-element"
+                  .card.text-center.shadow.free-card
+                    .card-header
+                      %h3 Starter
+                    .card-body
+                      .pricing
+                        %span.pricing-currency.free-span
+                          Free
+                      .ul-free
+                        %ul.o-list
+                          %li.pricing-li
+                            %ul.list-group.list-group-flush
+                              %li.inner-li
+                                = "Automatic Timetable Scheduling"
+                            %li.pricing-li
+                              %ul.list-group.list-group-flush
+                                %li.inner-li
+                                  = "Control your availability"
+                            %li.pricing-li
+                              %ul.list-group.list-group-flush
+                                %li.inner-li
+                                  = "Timetable Flexibility"
+
+                %label
+                  = f.radio_button :account_type,AccountType::PREMIUM, class: "card-input-element"
+                  .card.text-center.shadow.border-success
+                    .card-header.text-white.bg-success
+                      %h3= AccountType::PREMIUM
+                    .card-body
+                      .pricing
+                        %span.pricing-currency
+                          $
+                        %span.pricing-value
+                          7.99
+                        %span.pricing-period
+                          mth
+                      %ul.o-list
+
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Automatic Timetable Scheduling"
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Control your availability"
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Timetable Flexibility"
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Study Mode"
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Personalised Reports"
+                %label
+                  = f.radio_button :account_type,AccountType::STUDENT, class: "card-input-element"
+                  .card.text-center.shadow.border-success-student
+                    .card-header.text-white.bg-success-student
+                      %h3= AccountType::STUDENT
+                    .card-body
+                      .pricing
+                        %span.pricing-currency
+                          $
+                        %span.pricing-value
+                          5.99
+                        %span.pricing-period
+                          mth
+                      %ul.o-list
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Automatic Timetable Scheduling"
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Control your availability"
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Timetable Flexibility"
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Study Mode"
+                        %li.pricing-li
+                          %ul.list-group.list-group-flush
+                            %li.inner-li
+                              = "Personalised Reports"
+          .panel.panel-default
+            .panel-heading
+              %h4.panel-title
+                %a.accordion-toggle.collapsed{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"} Change Password
+            #collapseOne.panel-collapse.collapse.in
+              .panel-body
+                = f.input :current_password,
+                  required: false,
+                  input_html: { autocomplete: "current-password" },
+                  label: "Current Password"
+                = f.input :password,
+                  required: false,
+                  hint: "Leave blank to keep password unchanged",
+                  label: "New Password"
+                = f.input :password_confirmation,
+                  required: false,
+                  label: "Confirm New Password"
+
+        .divider
+        = submit_button 'Update'
+        .cancel-account.btn.btn-danger
+          #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}

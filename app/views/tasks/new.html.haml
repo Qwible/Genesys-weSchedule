@@ -1,0 +1,19 @@
+= stylesheet_link_tag "timetable.css"
+
+.task-show
+    .task-show-inner
+        %span New task
+
+        = simple_form_for(Task.new) do |f|
+            = f.error_notification
+            = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+            .form-inputs
+                = f.input :name, required: true, input_html: { class: 'mb-4'}
+                = f.input :end_datetime, as: :datetime, required: true, label: "Deadline"
+                = f.input :priority, label: "Priority, 1 is most important", disabled: @user.account_type == AccountType::FREE
+                = f.input :length, label: "Estimated length in hours", disabled: @user.account_type == AccountType::FREE
+                = f.input :schedule, label: "Schedule when generating timetable?", disabled: @user.account_type == AccountType::FREE
+            .form-actions
+                = f.button :submit, 'Submit Task', class: 'btn btn-primary btn-sm'
+        = link_to 'Back', tasks_path

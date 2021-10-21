@@ -1,0 +1,309 @@
+.pricing-options {
+    max-width: 960px;
+
+  }
+
+
+  /*
+   * Custom translucent site header
+   */
+
+  .site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .site-header a {
+    color: #999;
+    transition: ease-in-out color .15s;
+  }
+  .site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /*
+   * Dummy devices (replace them with your own or something else entirely!)
+   */
+
+  .product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+
+  .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+
+
+  /*
+   * Extra utilities
+   */
+
+  .border-top { border-top: 1px solid #e5e5e5; }
+  .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+  .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+  .flex-equal > * {
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      -ms-flex: 1;
+      -webkit-box-flex: 1;
+      flex: 1;
+    }
+  }
+
+  .overflow-hidden { overflow: hidden; }
+  .feature-container{
+    max-width:1700px;
+    margin: auto;
+  }
+
+.bg-success{
+  background: linear-gradient(to right, #21ddc6 0%, #00eab6 100%);
+}
+.bg-success-student{
+  background: linear-gradient(to right,rgba(30, 8, 112, 0.75) 0%, rgb(7, 1, 94) 100%);
+}
+.border-success{
+  border-color:#21ddc6 !important;
+}
+.border-success-student{
+  border-color:#2198dd !important;
+}
+.pricing{
+  font-family: "Muli",sans-serif;
+  height: 50px;
+  text-align: center;
+  line-height: 1;
+  margin: 25px 0 0px;
+  color: #272d45;
+  margin-bottom:32px;
+
+  }
+  .pricing-currency{
+    display: inline-block;
+    font-size: 2.027em;
+    margin-top: 0.25em;
+    vertical-align: top;
+  }
+  .pricing-value{
+    font-size: 3.247rem;
+    font-weight: 600;
+    box-sizing: border-box;
+  }
+  .pricing-period{
+    box-sizing: border-box;
+    text-align: center;
+  line-height: 1;
+  }
+.pricing-li{
+  padding-left:30px;
+  background: no-repeat top left url("https://www.okendo.io/icons/check.svg");
+  margin-bottom:8px;
+  font-size:.889rem;
+  box-sizing: border-box;
+  text-align:left;
+  list-style:none;
+  line-height: 1.6;
+  font-family: "Noto Sans",sans-serif;
+color: #8f9097;
+}
+.inner-li{
+  list-style:none;
+}
+.o-list{
+  margin-bottom:32px;
+  -webkit-box-flex: 1;
+  flex:1;
+  padding:0;
+  margin:auto;
+}
+.card-body{
+  padding:0;
+  margin:0;
+  margin-top:20px;
+}
+.pricing-wrap{
+  background: rgb(200,200,200);
+  background: linear-gradient(317deg, rgba(200,200,200,1) 35%, rgba(217,217,217,1) 100%);
+}
+.pricing-container{
+  max-width:900px;
+  margin:auto;
+}
+.card-body{
+  padding: 0px 16px 16px 16px;
+}
+.card{
+  margin:20px 5px 20px 5px !important;
+}
+.inner-li a{
+  font-size: .889rem;
+text-align: left;
+list-style: none;
+line-height: 1.6;
+font-family: "Noto Sans",sans-serif;
+color: #8f9097;
+}
+.black-section{
+  display: flex;
+padding-right: 15px;
+padding-left: 15px;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-webkit-flex-direction: column;
+-ms-flex-direction: column;
+flex-direction: column;
+-webkit-box-align: center;
+-webkit-align-items: center;
+-ms-flex-align: center;
+align-items: center;
+background-color: #1d2135;
+text-align: center;
+font-family: sans-serif;
+color: #4e4e4e;
+font-size: 15px;
+line-height: 24px;
+}
+.spacing-wrapper-xlarge{
+  margin-top: 64px;
+  box-sizing: border-box;
+}
+.spacing-wrapper-medium{
+  margin-top: 32px;
+  box-sizing: border-box;
+}
+
+.white-header{
+  position: relative;
+  text-align: center;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: proxima-nova,sans-serif;
+  font-size: 36px;
+  line-height: 43px;
+  font-weight: 300;
+}
+
+.four-row{
+  align-items: center;
+  -webkit-box-align: center;
+  display: flex;
+  justify-content: center;
+  text-align:center;
+}
+.four-row-item{
+  display: block;
+width: 250px;
+margin-bottom: 64px;
+padding-right: 15px;
+padding-left: 15px;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-webkit-box-pack: start;
+-webkit-box-align: center;
+align-self:stretch;
+}
+.four-row-image{
+  height:40px;
+  border:0;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+.white{
+  color: white;
+}
+.headline-eyebrow{
+  font-size: 13px;
+font-weight: 700;
+line-height: 1.2;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-bottom:20px;
+}
+.headline-small{
+  font-size: 40px;
+font-weight: 700;
+line-height: 1.1;
+letter-spacing: -0.03em;
+margin-bottom:20px;
+}
+.pt-8{
+  padding-top:130px !important;
+}
+.white-wrap{
+  background-color: white;
+}
+.img-fluid{
+  max-width: 100%;
+height: auto;
+}
+.bg-cx{
+  background-image: url('bg.png');
+  background-color: #179976;
+}
+.bg-btn{
+  color:white;
+  padding:0;
+  background:none;
+  transition:unset;
+  border-radius:0;
+  white-space: nowrap;
+display: inline-block;
+position: relative;
+border: solid transparent 2px;
+text-transform: uppercase;
+text-align: center;
+font-weight: 600;
+letter-spacing: 1px;
+overflow: hidden;
+z-index: 0;
+transition: color 0.7s ease, background-color 0.5s ease;
+font-size: .75rem;
+line-height: .9;
+padding-top: .5rem !important;
+}
+.bg-btn::after, .btn.btn-arrow.btn-arrow-left::before {
+  content: '';
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  vertical-align: text-top;
+  display: inline-block;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease;
+  margin-left: 4px;
+  background-image: url("https://s3.amazonaws.com/qualtrics-www/arrow-white.svg");
+}

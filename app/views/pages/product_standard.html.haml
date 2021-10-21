@@ -1,0 +1,26 @@
+- content_for :title, "Product standard"
+
+.jumbotron.mb-3
+  %p.lead Want to know more about the project?
+  %h1.display-5 Ask the team!
+
+
+-#.card.mb-3
+  .card-header
+    Flash Examples
+  .card-body
+    %button#show-flash.btn.btn-outline-primary{ type: :button }
+      = icon 'fas', 'exclamation-circle', 'Show flash message'
+
+-if !user_signed_in?
+  .card.mb-3
+    .card-header
+      Write us a question below:
+      
+
+
+
+:coffee
+  $ ->
+    $('#show-flash').on 'click', ->
+      $.flashAlert('Hello world!', 'alert-success')

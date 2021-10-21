@@ -1,0 +1,56 @@
+- content_for :title, "User Metrics"
+= stylesheet_link_tag "dashboard.css"
+= javascript_include_tag "https://www.gstatic.com/charts/loader.js" 
+
+.wrapper
+  = render 'sidebar'
+  .main-panel
+    
+    .content
+      .row
+        .col-md-6
+          .card
+            .card-header
+              %h5.card-title Average number of total unique logins per day
+              %p.card-category Past 30 days
+            .card-body#total-avg
+              = @daily_avg_total
+        .col-md-6
+          .card
+            .card-header
+              %h5.card-title Average number of unique free user logins per day
+              %p.card-category Past 30 days
+            .card-body#free-avg
+              = @daily_avg_free
+      .row
+        .col-md-6
+          .card
+            .card-header
+              %h5.card-title Average number of unique student user logins per day
+              %p.card-category Past 30 days
+            .card-body#student-avg
+              = @daily_avg_student
+        .col-md-6
+          .card
+            .card-header
+              %h5.card-title Average number of unique premium user logins per day
+              %p.card-category Past 30 days
+            .card-body#premium-avg
+              = @daily_avg_premium
+      .row
+        .col-md-12
+          .card
+            .card-header
+              %h5.card-title Daily unique logins
+              %p.card-category Past 30 days
+            .card-body
+              = line_chart user_logins_chart_metrics_path
+      .row
+        .col-md-12
+          .card
+            .card-header
+              %h5.card-title Current User Distribution
+              %p.card-category Lifetime performance
+            .card-body
+              = pie_chart User.where.not(account_type: [nil, AccountType::ADMIN]).group(:account_type).count
+

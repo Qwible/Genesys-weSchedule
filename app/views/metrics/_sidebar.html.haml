@@ -1,0 +1,36 @@
+.sidebar{"data-active-color" => "danger", "data-color" => "white"}
+  .logo
+    %a.simple-text.logo-mini
+      .logo-image-small
+        %img{:src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvloFEJ54ZozFEYImNaH_csYbLxQPDL8DqBw&usqp=CAU"}
+    %a.simple-text.logo-normal
+      User statistics
+
+  .sidebar-wrapper
+    %ul.nav
+      -# TODO: Fix the sidebar active item
+      %li
+        = navbar_link_to :metrics, title: "Go to the maps page", identifier: :maps, data: {link_name: "Link to MAP page"} do
+          %div{:class => @current_page != 'index' ? 'container2' : 'container1'}
+            .iconDetails
+              %img{:src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJyYGHZIBJuaheYJVYkNOpn8ZNmFJ6hZbS2Q&usqp=CAU"}
+            %p Dashboard
+
+      %li
+        = navbar_link_to '/metrics/maps', title: "Go to the maps page", identifier: :maps, data: {link_name: "Link to MAP page"} do
+          %div{:class => @current_page != 'maps' ? 'container2' : 'container1'}
+            .iconDetails
+              %img{:src => "https://icon-library.com/images/free-map-icon/free-map-icon-9.jpg"}
+            %p Maps
+      %li
+        = navbar_link_to '/metrics/users', title: "Go to the user metrics page", identifier: :users, data: {link_name: "Link to users page"} do
+          %div{:class => @current_page != 'users' ? 'container2' : 'container1'}
+            .iconDetails
+              %img{:src => "https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png"}
+            %p User Metrics
+      %li
+        = navbar_link_to '/metrics/feedback', title: "Go to the feedback page", identifier: :user_feedback, data: {link_name: "Link to feedback page"} do
+          %div{:class => @current_page != 'feedback' ? 'container2' : 'container1'}
+            .iconDetails
+              %img{:src => "https://icon-library.com/images/feedback-icon/feedback-icon-18.jpg"}
+            %p User Feedback

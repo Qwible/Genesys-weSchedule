@@ -1,0 +1,184 @@
+
+.card-deck#pricing-options
+  / CARD 1
+  .card.text-center.shadow
+    .card-header
+      %h3 Starter
+
+    .pricing
+      %span.pricing-currency
+        Free
+    %ul.o-list
+      %li.pricing-li
+        %ul.list-group.list-group-flush
+          %li.inner-li
+            = link_to "#scheduling" do
+              Automatic Timetable Scheduling
+          %div.share-buttons
+            = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 1', id: 'f1-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature Automatic Timetable Scheduling via twitter"} do
+              %i.fab.fa-twitter{id: 'f1-share-twitter2'}
+            = mail_to '', subject: 'Automatic Timetable Scheduling', id: 'f1-share-email' , data: {link_name: "Link to Share Feature Automatic Timetable Scheduling via email"}do
+              %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#availability" do
+                Control your availability
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 2', id: 'f2-share-twitter', target: "_blank",data: {link_name: "Link to Share Feature Control your availability via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Control your availability', id: 'f2-share-email', data: {link_name: "Link to Share Feature Control your availability via email"} do
+                %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#flexibility" do
+                Timetable Flexibility
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 3', id: 'f3-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature Timetable Flexibility via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Timetable Flexibility', id: 'f3-share-email', data: {link_name: "Link to Share Feature Timetable Flexibility via email"} do
+                %i.fa.fa-envelope
+    .card-footer
+      %a.btn.btn-primary{"data-target" => "#registerInterestFreeTier", "data-toggle" => "modal", :type => "button", :id => "signUpFreeLink"} Sign up!
+      %button.btn.btn-outline-info{:type => "button", :id => "signUpProLink"}
+        = link_to "Learn more", :questions,  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#104d41'
+  / CARD 2
+
+  .card.text-center.shadow.border-success
+    .card-header.text-white.bg-success
+      %h3 Pro
+    .card-body
+      .pricing
+        %span.pricing-currency
+          $
+        %span.pricing-value
+          7.99
+        %span.pricing-period
+          mth
+      %ul.o-list
+
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#scheduling" do
+                Automatic Timetable Scheduling
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 1', id: 'f1-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 1 via twitter"} do
+                %i.fab.fa-twitter{id: 'f1-share-twitter2'}
+              = mail_to '', subject: 'Feature 1', id: 'f1-share-email' , data: {link_name: "Link to Share Feature 1 via email"}do
+                %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#availability" do
+                Control your availability
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 2', id: 'f2-share-twitter', target: "_blank",data: {link_name: "Link to Share Feature 2 via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Feature 2', id: 'f2-share-email', data: {link_name: "Link to Share Feature 2 via email"} do
+                %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#flexibility" do
+                Timetable Flexibility
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 3', id: 'f3-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 3 via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Feature 3', id: 'f3-share-email', data: {link_name: "Link to Share Feature 3 via email"} do
+                %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#study-mode" do
+                Study Mode
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 4', id: 'f4-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 4 via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Feature 4', id: 'f4-share-email', data: {link_name: "Link to Share Feature 4 via email"} do
+                %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#personalised-reports" do
+                Personalised Reports
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 5', id: 'f5-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 5 via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Feature 5', id: 'f5-share-email', data: {link_name: "Link to Share Feature 1 via email"} do
+                %i.fa.fa-envelope
+
+    .card-footer
+      %a.btn.btn-primary{ :"data-target" => "#registerInterestProTier", "data-toggle" => "modal", :type => "button", :id => "signUpProLink"} Sign up!
+      %button.btn.btn-outline-info{:type => "button", :id => "signUpProLink"}
+        = link_to "Learn more", :questions,  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#104d41'
+  .card.text-center.shadow.border-success-student
+    .card-header.text-white.bg-success-student
+      %h3 Student
+    .card-body
+      .pricing
+        %span.pricing-currency
+          $
+        %span.pricing-value
+          5.99
+        %span.pricing-period
+          mth
+      %ul.o-list
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#scheduling" do
+                Automatic Timetable Scheduling
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 1', id: 'f1-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 1 via twitter"} do
+                %i.fab.fa-twitter{id: 'f1-share-twitter2'}
+              = mail_to '', subject: 'Feature 1', id: 'f1-share-email' , data: {link_name: "Link to Share Feature 1 via email"}do
+                %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#availability" do
+                Control your availability
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 2', id: 'f2-share-twitter', target: "_blank",data: {link_name: "Link to Share Feature 2 via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Feature 2', id: 'f2-share-email', data: {link_name: "Link to Share Feature 2 via email"} do
+                %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#flexibility" do
+                Timetable Flexibility
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 3', id: 'f3-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 3 via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Feature 3', id: 'f3-share-email', data: {link_name: "Link to Share Feature 3 via email"} do
+                %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#study-mode" do
+                Study Mode
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 4', id: 'f4-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 4 via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Feature 4', id: 'f4-share-email', data: {link_name: "Link to Share Feature 4 via email"} do
+                %i.fa.fa-envelope
+        %li.pricing-li
+          %ul.list-group.list-group-flush
+            %li.inner-li
+              = link_to "#personalised-reports" do
+                Personalised Reports
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/product_pro&text=Feature 5', id: 'f5-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 5 via twitter"} do
+                %i.fab.fa-twitter
+              = mail_to '', subject: 'Feature 5', id: 'f5-share-email', data: {link_name: "Link to Share Feature 1 via email"} do
+                %i.fa.fa-envelope
+
+    .card-footer
+      %a.btn.btn-primary{ :"data-target" => "#registerInterestProTier", "data-toggle" => "modal", :type => "button", :id => "signUpProLink"} Sign up!
+      %button.btn.btn-outline-info{:type => "button", :id => "signUpProLink"}
+        = link_to "Learn more", :questions,  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#104d41'
+  = render 'partials/register_interest_modal', tier: "Free"
+  = render 'partials/register_interest_modal', tier: "Pro"

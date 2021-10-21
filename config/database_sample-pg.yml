@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: genesys_project_dev
+  host: localhost
+  min_messages: warning
+  username:
+
+test:
+  adapter: postgresql
+  database: genesys_project_test
+  host: localhost
+  min_messages: warning
+  username:

@@ -1,0 +1,57 @@
+.card.question-card
+  .card-header
+    .reviews-members-footer
+      .question-text
+        = question.text
+      .useful
+        -if can? :update, Question
+          -if question.visible
+            %button.btn.btn-outline-success.hide-question{:id => "hide-question-" + question.id.to_s} Hide this question
+          - else
+            %button.btn.btn-outline-danger.hide-question{:id => "hide-question-" + question.id.to_s} Show this question
+        - else
+          %button.btn.btn-outline-success.express-interest{:id => "express-interest-" + question.id.to_s} I also have this issue
+        %a.total-interest{:title => "Total interest in question"}
+          <span id = #{"current-score-interest-" + question.id.to_s}> #{question.interest} </span>
+  - if question.answer?
+
+    .bg-white.rounded.shadow-sm.p-4.restaurant-detailed-ratings-and-reviews.answer-box
+      -if can? :update, Question
+        = simple_form_for(question) do |f|
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+          .form-inputs
+            = f.input :answer, as: :text, label: false, :value => question.answer
+          .form-actions
+            .clear-box
+              = f.button :submit, 'Edit Answer', class: 'btn btn-danger btn-sm'
+            %a.total-like{:title => "Total rating of answer"}
+              <span> #{question.score} </span>
+            %p.n_ratings
+              Answer score, with <span> #{question.n_ratings} </span> ratings
+      -else
+        %p= question.answer
+
+        .reviews-members-footer
+          %a.total-like{:title => "Total rating of answer"}
+            <span id = #{"current-score-question-" + question.id.to_s}> #{question.score} </span>
+          %p.n_ratings
+            with <span id = #{"current-n_ratings-question-" + question.id.to_s}> #{question.n_ratings}</span> ratings
+
+          .useful
+            .helpful-div
+              Was this answer helpful?
+            %button.btn.btn-outline-danger.rate-question.imagebutton{:id => "negative-rating-" + question.id.to_s}
+              %img.thumbupdown.down{:alt=> "thumbs down", :src => "http://www.clker.com/cliparts/5/2/5/8/13476359851958638477thumbs-down-icon-red-hi-md.png"}
+            %button.btn.btn-outline-success.rate-question.imagebutton{:id => "positive-rating-" + question.id.to_s}
+              %img.thumbupdown.up{:alt=> "thumbs up", :src => "https://www.pinclipart.com/picdir/big/11-119222_thumbs-up-icon-green-th-clip-art-green.png"}
+  - else
+    -if can? :update, Question
+      .bg-white.rounded.shadow-sm.p-4.restaurant-detailed-ratings-and-reviews
+        = simple_form_for(question) do |f|
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+          .form-inputs
+            = f.input :answer, as: :text, label: false
+          .form-actions
+            = f.button :submit, 'Submit Answer', class: 'btn btn-primary btn-sm'

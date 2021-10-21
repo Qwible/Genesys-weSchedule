@@ -1,0 +1,58 @@
+.bg-white.rounded.shadow-sm.p-4.mb-4.restaurant-detailed-ratings-and-reviews
+    %h5.mb-1 All Ratings and Reviews
+    =render @reviews
+
+    /This is all for pagination, only display the pagination bar if there is more than one pages worth of reviews
+    -if @review_count > @reviews_per_page
+        %nav#review-pagination-nav
+            %ul.pagination.justify-content-center
+                /The first and previous page buttons need different functionality on page 1 (i.e. the first page)
+                -if @current_page == 1
+                    %li.page-item.active
+                        %a.page-link{id: 'page-first'} First
+                    %li.page-item.disabled
+                        %a.page-link{id: 'page-previous', href: '#'} Previous
+                - else
+                    /else behave as expected
+                    %li.page-item
+                        %a.page-link{id: 'page-first', href: '/reviews?page_no=1&ordering=' + @current_ordering.to_s } First
+                    %li.page-item
+                        %a.page-link{id: 'page-previous', href: '/reviews?page_no=' + (@current_page - 1).to_s + '&ordering=' + @current_ordering.to_s} Previous
+
+                -if @current_page != 1
+                    /If neither the current or previous page is not the first page add an ellipse to signify more pages
+                    -if @current_page - 1 != 1
+                        %li.page-item
+                            %a.page-link{id: 'page-number-ellipse'} ...
+
+                    /If the current page is not the first insert a link to the previous page
+                    %li.page-item
+                        %a.page-link{id: 'page-number-' + (@current_page - 1).to_s, href: '/reviews?page_no=' + (@current_page - 1).to_s + '&ordering=' + @current_ordering.to_s} #{@current_page - 1}
+
+                /Put an active display for the current page
+                %li.page-item.active
+                    %a.page-link{id: 'page-number-' + @current_page.to_s} #{@current_page}
+
+                /This if statement will only be false for the last page
+                - if @current_page * @reviews_per_page < @review_count
+                    /Link to the next page
+                    %li.page-item
+                        %a.page-link{id: 'page-number-' + (@current_page + 1).to_s, href: '/reviews?page_no=' +(@current_page + 1).to_s + '&ordering=' + @current_ordering.to_s} #{@current_page + 1}
+
+                    /If the page following from the current one is also not the last page add an ellipse to signify more pages
+                    - if (@current_page + 1) * @reviews_per_page < @review_count
+                        %li.page-item
+                            %a.page-link{id: 'page-number-ellipse'} ...
+
+                /If the current page is the last one, the next page and last page button do not need links
+                -if @current_page * @reviews_per_page > @review_count
+                    %li.page-item.disabled
+                        %a.page-link{id: 'page-next'} Next
+                    %li.page-item.active
+                        %a.page-link{id: 'page-last'} Last
+                -else
+                    /Otherwise behave as expected
+                    %li.page-item
+                        %a.page-link{id: 'page-next', href: '/reviews?page_no=' + (@current_page + 1).to_s + '&ordering=' + @current_ordering.to_s} Next
+                    %li.page-item
+                        %a.page-link{id: 'page-last', href: '/reviews?page_no=' + @total_pages.to_s + '&ordering=' + @current_ordering.to_s } Last

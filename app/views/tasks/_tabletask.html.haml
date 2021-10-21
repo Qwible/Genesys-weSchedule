@@ -1,0 +1,9 @@
+%tr{:scope =>"row"}
+  %td= task.name
+  %td= task.start_datetime
+  %td= task.end_datetime
+  %td= task.length
+  %td= task.priority
+  %td= link_to 'Show', task
+  %td= link_to 'Edit', edit_task_path(task), id: 'edit-tasks-link'
+  %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }

@@ -1,0 +1,118 @@
+= stylesheet_link_tag "signup.css"
+= stylesheet_link_tag "reviews.css"
+.bg-white.rounded.shadow-sm.p-4.mb-4.restaurant-detailed-ratings-and-reviews
+  
+  %h1.h3.mb-3.font-weight-normal{:style => "text-align: center"} Sign up
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .form-inputs
+      = f.input :email,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "email" }
+      = f.input :password,
+        required: true,
+        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+        input_html: { autocomplete: "new-password" }
+      = f.input :password_confirmation,
+        required: true,
+        input_html: { autocomplete: "new-password" }
+    %h3{style: "text-align: center; margin-top: 50px"} Select Account Type
+    .accounts
+      .labels
+        %label
+          = f.radio_button :account_type,"Starter", :checked => true, class: "card-input-element"
+          .card.text-center.shadow.free-card
+            .card-header
+              %h3 Starter
+            .card-body
+              .pricing
+                %span.pricing-currency.free-span
+                  Free
+              .ul-free
+                %ul.o-list
+                  %li.pricing-li
+                    %ul.list-group.list-group-flush
+                      %li.inner-li
+                        = "Automatic Timetable Scheduling"
+                    %li.pricing-li
+                      %ul.list-group.list-group-flush
+                        %li.inner-li
+                          = "Control your availability"
+                    %li.pricing-li
+                      %ul.list-group.list-group-flush
+                        %li.inner-li
+                          = "Timetable Flexibility"
+
+        %label
+          = f.radio_button :account_type,"Pro", class: "card-input-element"
+          .card.text-center.shadow.border-success
+            .card-header.text-white.bg-success
+              %h3 Pro
+            .card-body
+              .pricing
+                %span.pricing-currency
+                  $
+                %span.pricing-value
+                  7.99
+                %span.pricing-period
+                  mth
+              %ul.o-list
+
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Automatic Timetable Scheduling"
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Control your availability"
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Timetable Flexibility"
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Study Mode"
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Personalised Reports"
+        %label
+          = f.radio_button :account_type,"Student", class: "card-input-element"
+          .card.text-center.shadow.border-success-student
+            .card-header.text-white.bg-success-student
+              %h3 Student
+            .card-body
+              .pricing
+                %span.pricing-currency
+                  $
+                %span.pricing-value
+                  5.99
+                %span.pricing-period
+                  mth
+              %ul.o-list
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Automatic Timetable Scheduling"
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Control your availability"
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Timetable Flexibility"
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Study Mode"
+                %li.pricing-li
+                  %ul.list-group.list-group-flush
+                    %li.inner-li
+                      = "Personalised Reports"
+      .back-button
+        = button_to 'Back', :back, class: 'btn btn-primary primary-button'
+      .signup
+        = submit_button 'Sign up'

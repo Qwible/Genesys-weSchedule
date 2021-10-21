@@ -1,0 +1,37 @@
+
+.card-deck
+  / CARD 1
+  .card.text-center.shadow
+    .card-header
+      %h3 Starter
+      %h5 Free
+    .card-body
+      %h5.card-title For starting out
+      %p.card-text Great for something or other
+    %ul.list-group.list-group-flush
+      %li.list-group-item Feature 1
+      %li.list-group-item Feature 2
+      %li.list-group-item Feature 3
+    .card-footer
+      %a.btn.btn-primary{"data-target" => "#registerInterestFreeTier", "data-toggle" => "modal", :type => "button", :id => "signUpFreeLink"} Sign up!
+      %button.btn.btn-outline-info{:type => "button", :id => "signUpProLink"} 
+        = link_to "Learn more", :product_standard,  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#104d41'
+  / CARD 2
+  .card.text-center.shadow.border-success
+    .card-header.text-white.bg-success
+      %h3 Pro
+      %h5 £X
+    .card-body
+      %h5.card-title For serious users
+      %p.card-text Even greater
+    %ul.list-group.list-group-flush
+      %li.list-group-item.border-success All free features
+      %li.list-group-item.border-success Feature 4
+      %li.list-group-item.border-success Feature 5
+    .card-footer
+      %a.btn.btn-primary{ :"data-target" => "#registerInterestProTier", "data-toggle" => "modal", :type => "button", :id => "signUpProLink"} Sign up!
+      %button.btn.btn-outline-info{:type => "button", :id => "signUpProLink"} 
+        = link_to "Learn more", :product_pro,  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#104d41'
+  = render 'partials/register_interest_modal', tier: "Free"
+  = render 'partials/register_interest_modal', tier: "Pro"
+

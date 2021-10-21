@@ -1,0 +1,98 @@
+- content_for :title, "Home"
+
+= stylesheet_link_tag "carousel.css"
+%body
+  %main{role: "main"}
+    .banner_top
+      %span.ribbon
+        = link_to "Sign up early", :pricing,  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#0066cc'
+        to cash in on our early bird price. And get Specialist help, and more.
+
+    #myCarousel.carousel.slide{"data-ride" => "carousel"}
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+        %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+        %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+      .carousel-inner
+        .carousel-item
+          %img.first-slide{alt: "First slide", src: "https://wallpaperaccess.com/full/95257.png"}
+          .container
+            .carousel-caption.text-left
+              %h1 Tell us you're interested.
+              %p Want to receive updates as we develop our application? Register your interest by clicking below.
+              %button.btn.btn-primary{:type => "button"}
+                = link_to "Register your interest", :pricing, id: "pricing-link",  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#FFFFFF'
+
+        .carousel-item.active
+          %img.second-slide{alt: "Second slide", src: "https://wallpaperaccess.com/full/95257.png"}
+          .container
+            .carousel-caption
+              %h1 weSchedule
+              %p weSchedule is an all-in-one platform for generating daily schedules and managing tasks better than any app on the market.
+              %button.btn.btn-primary{:type => "button"}
+                = link_to "Features and pricing options", :pricing, id: "pricing-link",  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#FFFFFF'
+
+        .carousel-item
+          %img.third-slide{alt: "Third slide", src: "https://wallpaperaccess.com/full/95257.png"}
+          .container
+            .carousel-caption.text-right
+              %h1 Get a feel for the app.
+              %p Take a look at the FAQ to get to grips with the weSchedule app.
+              %button.btn.btn-primary{:type => "button"}
+                = link_to "FAQs", :questions, id: "faq-link",  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#FFFFFF'
+      %a.carousel-control-prev{"data-slide" => "prev", href: "#myCarousel", role: "button"}
+        %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+        %span.sr-only Previous
+      %a.carousel-control-next{"data-slide" => "next", href: "#myCarousel", role: "button"}
+        %span.carousel-control-next-icon{"aria-hidden" => "true"}
+        %span.sr-only Next
+
+  .container.marketing
+    .row
+      .col-lg-4
+        %img.rounded-circle{:alt => "Generic placeholder image", :height => "140", :src => "247.jpg", :width => "140"}/
+        %h3 Control your availability 24/7.
+        %p We work around your time. You tell us when you want to work, we tell you how to do it. It's that simple.
+
+      .col-lg-4
+        %img.rounded-circle{:alt => "Generic placeholder image", :height => "140", :src => "schedule.png", :width => "140"}/
+        %h3 Organize your schedule.
+        %p Easily shuffle around allocated work to your liking & receive automated reminders.
+
+
+      .col-lg-4
+        %img.rounded-circle{:alt => "Generic placeholder image", :height => "140", :src => "appointment.png", :width => "140"}/
+        %h3 Plan your daily tasks.
+        %p Minimal input required.
+
+
+    / START THE FEATURETTES
+
+    %hr.featurette-divider
+    .row.featurette
+      .col-md-7
+        %h2.featurette-heading
+          Automatic timetabling.
+          %span.muted-text Quick. Easy. Effective.
+        %p.lead We automatically provide you with a routine fit for your purposes, saving you time and effort.
+      .col-md-5
+        %img.featurette-image.img-fluid.mx-auto.img2{:alt => "Generic placeholder image", "src" => "timetable3.jpg"}
+    %hr.featurette-divider
+    .row.featurette
+      .col-md-7.order-md-2
+        %h2.featurette-heading
+          Adaptable for all of your needs.
+          %span.muted-text You name it.
+        %p.lead Busy with office work and don't have enough hours in the day to schedule your tasks? Overworked by university or college assignments? We have customisable preferences that suit all of our users.
+      .col-md-5.order-md-1
+        %img.featurette-image.img-fluid.mx-auto.img2{:alt => "Generic placeholder image", "src" => "timetable1.jpeg"}
+    %hr.featurette-divider
+    .row.featurette
+      .col-md-7
+        %h2.featurette-heading
+          Want to eliminate your distractions?
+          %span.muted-text We've got you covered.
+        %p.lead With our study mode, we help you blacklist distracting websites and services that stop you from being productive. Not taking enough breaks? Our integrated pomodoro timer tells you when to stop working and take a breather.
+      .col-md-5
+        %img.featurette-image.img-fluid.mx-auto.img2{:alt => "Generic placeholder image", "src" => "timetable2.jpeg"}
+    %hr.featurette-divider

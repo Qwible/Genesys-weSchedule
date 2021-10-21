@@ -1,0 +1,75 @@
+= content_for :title, "myCalendar"
+= stylesheet_link_tag "timetable.css"
+= stylesheet_link_tag "login.css"
+= javascript_include_tag "tasks"
+
+%script
+  != "tasks = #{@tasks.to_json};"
+  != "calendarEvents = #{@events.to_json};"
+
+-if @alert==true
+  %div.alert.alert-danger
+    One or more tasks have had to be scheduled after their end date, either adjust your working days to include enough time
+    to complete the task or reassess the length of time the tasks will take to complete. Following these changes, please regenerate
+    your timetable so it reflects these.
+.help-link
+  .help-text
+    Having trouble understanding how our scheduling system works? Click 
+    = link_to :help, title: "Go to the help page",id: 'metrics-link', identifier: :questions, data: {link_name: "Link to FAQ page"} do
+      here
+    for some tips. 
+  
+.calendar-wrap
+  .sidebar
+    .new-task
+      .create-link
+        %button.btn.btn-primary{:type => "button"}
+          = link_to '+ Create', new_task_path, id:"create-task-link",style: 'text-decoration:none; color:#FFFFFF'
+
+    .task-list
+      .task-wrap
+        %span Unallocated Tasks:
+        .task-container
+          %div{:id => "external-events"}
+            = render @tasks
+
+    - if can? :auto_calendar, current_user
+      %button.btn.btn-secondary.generate-timetable-link{:type => "button"}
+        = link_to 'Generate Timetable', '', id:"generate-timetable-link", class: 'generate_timetable',style: 'text-decoration:none; color:#FFFFFF'
+
+  %div{:id => "calendar"}
+
+
+%br
+
+%div.modal#event-time-modal{"tabindex" => "-1", "role" => "dialogue",}
+  %div.modal-dialogue
+    %div.modal-content
+      %div.modal-header
+        %h5.modal-title Choose event time
+      %div.modal-body
+        %form#manual-calendar-event-form
+          %label{"for" => "startTime"} Event Start:
+          %input#startTime{"type" => "time", "required" => true}
+          %label{"for" => "endTime"} Event end:
+          %input#endTime{"type" => "time", "required" => true}
+          %input{"type" => "submit"}
+      %div.modal-footer
+        %button.btn.btn-secondary#cancel-event-creation Cancel
+
+
+-#
+-# %table{:class => "table"}
+  %thead
+    %tr
+      %th{:scope =>"col"} Name
+      %th{:scope =>"col"} Start
+      %th{:scope =>"col"} End
+      %th{:scope =>"col"} Length
+      %th{:scope =>"col"} Priority
+      %th{:scope =>"col"}
+      %th{:scope =>"col"}
+      %th{:scope =>"col"}
+
+  %tbody
+    = render partial: "tasks/tabletask", collection: @tasks, as: :task

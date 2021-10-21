@@ -1,0 +1,21 @@
+%p#notice= notice
+= stylesheet_link_tag "timetable.css"
+.task-show
+  .task-show-inner
+    %p
+      %b Name:
+      = @task.name
+    %p
+      %b End:
+      = @task.end_datetime
+    - if @user.account_type != AccountType::FREE
+      %p
+        %b Length:
+        = @task.length
+      %p
+        %b Priority:
+        = @task.priority
+
+    = link_to 'Edit', edit_task_path(@task), id: 'edit-tasks-link'
+    \|
+    = link_to 'Back', tasks_path

@@ -1,0 +1,25 @@
+= stylesheet_link_tag "timetable.css"
+
+-# frozen_string_literal: true
+.task-show
+  .task-show-inner
+    %span Edit Task
+    = simple_form_for(@task) do |f|
+      = f.error_notification
+      = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+      .form-inputs
+        = f.input :name
+        = f.input :start_datetime
+        = f.input :end_datetime
+        = f.input :length
+        = f.input :priority
+        = f.input :schedule
+
+      .form-actions
+        = f.button :submit, 'Update Task', class: 'btn btn-primary btn-sm'
+        .destroy-link
+          = link_to 'Destroy', @task, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger btn-sm'
+      <br>
+      = link_to 'Back', tasks_path
+      

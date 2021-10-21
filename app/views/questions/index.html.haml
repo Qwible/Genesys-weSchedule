@@ -1,0 +1,96 @@
+- content_for :title, "FAQ"
+= stylesheet_link_tag "questions.css"
+
+= render 'questions/questions'
+.order-by
+  = label_tag "order-by", "Order by:"
+  = select_tag("order-by", options_for_select([["Date Descending"], ["Date Ascending"], ["Interest Descending"], ["Interest Ascending"]], @order))
+
+.bg-white.rounded.shadow-sm.p-4.mb-4.restaurant-detailed-ratings-and-reviews
+  %h5.mb-4 Customer Questions
+  = render @questions
+  = will_paginate @questions
+
+-if can? :create, Question
+  = render 'questions/new'
+
+:coffee
+    $ ->
+    $(document).on 'click', 'button.express-interest', () ->
+        btn = this
+        question_id = btn.id.split('-')[2]
+
+        $.ajax
+            method: 'POST',
+            url: '/questions/' + question_id + '/' + "express_interest"
+            success: (response) ->
+              if response.response == true
+                $.flashAlert('Your interest in this question has been received', 'alert-success')
+                $('#current-score-interest-' + question_id).text(" " + response.new_score)
+              else
+                $.flashAlert('You have already expressed interest in this question!', 'alert-danger')
+
+
+      $(document).on 'click', 'button.hide-question', ->
+            btn = this
+            click_id = btn.id.split('-')[2]
+            not_hidden = btn.textContent == "Hide this question"
+            $.ajax
+                method: "POST"
+                url: "/questions/" + click_id + "/hide_and_unhide"
+                success: (data) ->
+                    if not_hidden == true
+                        # Change the button and display feedback
+                        $.flashAlert('Question hidden!', 'alert-success')
+                        $('#hide-question-' + click_id)
+                            .text('Show this question')
+                            .removeClass('btn-outline-success')
+                            .addClass('btn-outline-danger')
+
+                        console.log($('#hide-question-' + click_id))
+                    else
+                        # Change the button and display feedback
+                        $.flashAlert('Question un-hidden!', 'alert-success')
+                        $('#hide-question-' + click_id)
+                            .text('Hide this question')
+                            .removeClass('btn-outline-danger')
+                            .addClass('btn-outline-success')
+                        console.log($('#hide-question-' + click_id))
+                error: (error) ->
+                    $.flashAlert('An error has occured during the process, please try again', 'alert-danger')
+
+
+        $(document).on 'click', 'button.rate-question', () ->
+            target = this
+            rating_direction = target.id.split('-')[0] #positive or negative rating
+            rating_target_question_id = target.id.split('-')[2] #question id the rating is for
+
+            #get the correct route for the desired action
+            route = if rating_direction == 'positive' then 'increase_score' else 'decrease_score'
+
+            $.ajax
+                method: 'POST',
+                url: '/questions/' + rating_target_question_id + '/' + route
+                success: (response) ->
+                    if response.rating_change == true
+                        #update rating display
+                        $('#current-score-question-' + rating_target_question_id).text(" " + response.new_score)
+                        #Show an alert relevant to the action
+                        if response.old_rating == true
+                            $.flashAlert('Your rating of this answer has been changed', 'alert-success')
+                        else
+                            $.flashAlert('Your rating of this answer has been submitted', 'alert-success')
+                            #update rating display
+                            $('#current-n_ratings-question-' + rating_target_question_id).text(" " + response.new_n_ratings)
+
+                    else
+                        $.flashAlert('You have already submitted a rating for this answer', 'alert-danger')
+                error: (error) ->
+                    $.flashAlert('An error has occured during the process, please try again', 'alert-danger')
+
+        $('#order-by').on 'change', ->
+            new_sort = $(this).val()
+            current_location = location.href.split('?')[0]
+            query = new URLSearchParams(location.search)
+            new_query = '?'+'order=' + new_sort
+            location.href = current_location + new_query

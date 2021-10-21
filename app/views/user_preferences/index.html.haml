@@ -1,0 +1,23 @@
+
+- content_for :title, "Preferences"
+= stylesheet_link_tag "reviews.css"
+= javascript_include_tag "user_preferences"
+
+.bg-white.rounded.shadow-sm.p-4.mb-4.restaurant-detailed-ratings-and-reviews
+  %h5.mb-4 User Preferences
+  = form_with model: @user_preference, url:"/user_preferences/update", method: :post, local: true do |f|
+    = f.label :workday_start, "Start of workday: "
+    = f.time_field :workday_start, value: UserPreferencesHelper.convert_time_int_to_string(@user_preference.workday_start)
+    %br
+    = f.label :workday_end, "End of workday: "
+    = f.time_field :workday_end, value: UserPreferencesHelper.convert_time_int_to_string(@user_preference.workday_end)
+    %br
+    = f.label :weekends, "Work on weekends? "
+    = f.check_box :weekends, {checked: @user_preference.weekends}
+    %br
+    = f.submit "Submit Preferences", class: 'btn btn-primary btn-sm'
+
+
+.bg-white.rounded.shadow-sm.p-4.mb-4.restaurant-detailed-ratings-and-reviews
+  %h5.mb-4 Hours studied in the last week under your latest timetable: 
+  =@hours_studied

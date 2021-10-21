@@ -1,0 +1,30 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+Metrics/BlockLength:
+  ExcludedMethods: ["describe", "context"]
+Metrics/MethodLength:
+  Max: 20
+Metrics/ClassLength:
+  Max: 200
+AllCops:
+  SuggestExtensions: false
+  TargetRubyVersion: 2.6
+  Include:
+    - "spec/**/*"
+    - "app/controllers/**/*"
+    - "app/models/**/*"
+    - "/app/decorators/*"
+  Exclude:
+    - "spec/spec_helper.rb"
+    - "spec/rails_helper.rb"
+    - "db/**/*"
+    - "config/**/*"
+    - "/app/helpers/*"
+
+Style/Documentation:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Max: 5
+RSpec/ExampleLength:
+  Max: 12

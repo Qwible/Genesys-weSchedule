@@ -1,0 +1,52 @@
+%div{:id => 'review-' + review.id.to_s}
+    .reviews-members.pt-4.pb-4
+        .media
+            %a{:href => "#"}
+                %img.mr-3.rounded-pill{:alt => "Generic placeholder image", :src => "https://www.marinasmediterraneo.com/marinaseste/wp-content/uploads/sites/4/2018/09/generic-user-purple-4.png"}/
+            .media-body
+                .reviews-members-header
+                    %span.star-rating.float-right
+                        %a{:href => "#"}
+                            %i.icofont-ui-rating.active
+                        %a{:href => "#"}
+                            %i.icofont-ui-rating.active
+                        %a{:href => "#"}
+                            %i.icofont-ui-rating.active
+                        %a{:href => "#"}
+                            %i.icofont-ui-rating.active
+                        %a{:href => "#"}
+                            %i.icofont-ui-rating
+                %h6.mb-1
+                    - if review.anonymous == false
+                        %a.text-black{:href => "#"} #{review.first_name} #{review.last_name}
+                    - else
+                        %a.text-black{:href => "#"} Left by a user
+                %p.text-gray #{review.created_at.strftime("%H:%M:%S %d %b %Y")}
+                -# %div{:id => "review-" + review.id.to_s}
+
+                .reviews-members-body
+                    %p  #{review.review}
+
+                .reviews-members-footer
+                    %a.total-like{:href => "#"}
+                        %i.icofont-thumbs-up
+                        %p.review-score{id: 'current-score-review-' + review.id.to_s} #{review.score}
+                    .useful
+                        -if not can? :update, Review
+                            .reviews-members-footer
+                                %button.btn.btn-outline-dangereview.rate-review.imagebutton{:id => "negative-rating-review-" + review.id.to_s}
+                                    %img.thumbupdown{:alt=> "thumbs down", :src => "http://www.clker.com/cliparts/5/2/5/8/13476359851958638477thumbs-down-icon-red-hi-md.png"}
+                                %button.btn.btn-outline-success.rate-review.imagebutton{:id => "positive-rating-review-" + review.id.to_s}
+                                    %img.thumbupdown{:alt=> "thumbs up", :src => "https://www.pinclipart.com/picdir/big/11-119222_thumbs-up-icon-green-th-clip-art-green.png"}
+
+                        -else
+                            -if not review.hidden
+                                %button.btn.btn-outline-dangereview.hide-review{:id => "hide-review-" + review.id.to_s} Hide this review
+                            - else
+                                %button.btn.btn-outline-success.hide-review{:id => "hide-review-" + review.id.to_s} Show this review
+
+                            -if not review.pinned
+                                %button.btn.btn-outline-success.pin-review{:id => "pin-review-" + review.id.to_s} Pin this review
+                            -else
+                                %button.btn.btn-outline-dangereview.pin-review{:id => "pin-review-" + review.id.to_s} Unpin this review
+%hr/

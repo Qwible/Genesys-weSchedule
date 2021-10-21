@@ -1,0 +1,44 @@
+- content_for :title, "Help"
+= stylesheet_link_tag "reviews.css"
+.bg-white.rounded.shadow-sm.p-4.mb-4.restaurant-detailed-ratings-and-reviews
+  .container
+    #accordion.panel-group
+      .contact_content
+        %h2
+          How does our scheduling system work?
+        .subheader-contact
+          %p
+            We know this system can be a little confusing at first. Below are some helpful pointers to get you up to speed with our service. 
+        <br>
+        %h4
+          Each task is scheduled between the start and end time of your choosing 
+        %p
+          To change this go to the "user menu -> preferences"
+        
+        <hr>
+        %h4
+          Each task is scheduled by priority first then task end date
+
+        %p
+          This means that your top priority tasks always get completed first !
+        <hr>
+        %h4
+          Every task can be manually scheduled
+        %p
+          If you don't have access to our automatic scheduling service, or don't like the look of your timetable - you can change it as much as you like!
+        <hr>
+        %h4
+          Each task will have calendar events such that the duration is equal to to their described length.
+        %p 
+          If you schedule a small portion of a task yourself, our algorithm will take this into account for you.
+        <hr>
+        %h4
+          When creating a task you can specify whether it should be automatically scheduled when generating a new timetable.
+        %p
+          Some users like to have more control over their schedule and we understand that. Choose whether new tasks you create go straight onto the calendar, or whether you want to schedule them yourself later. 
+        <hr>
+        <br>
+        %button.btn.btn-primary{:type => "button"}
+          = link_to 'Back', :calendar, id:"create-task-link",style: 'text-decoration:none; color:#FFFFFF'
+          
+        

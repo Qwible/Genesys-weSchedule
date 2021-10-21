@@ -1,0 +1,11 @@
+.bg-white.rounded.shadow-sm.p-4.mb-5.rating-review-select-page
+  %h5.mb-4 Can't see your issue? - Ask us a new question:
+  -# frozen_string_literal: true
+  = simple_form_for(Question.new) do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+    .form-inputs
+      = f.input :text, as: :text, label: false, required: true, input_html: { class: 'mb-4'}
+    .form-actions
+      = f.button :submit, 'Submit Question', class: 'btn btn-primary btn-sm'

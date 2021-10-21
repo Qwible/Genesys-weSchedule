@@ -1,0 +1,135 @@
+- content_for :title, "Pricing"
+= stylesheet_link_tag "product.css"
+%body
+  .position-relative.overflow-hidden.p-3.p-md-5.text-center.bg-light
+    .col-md-5.p-lg-5.mx-auto.my-5
+      %h1.display-4.font-weight-normal All your productivity in one place.
+      %p.lead.font-weight-normal Schedule all of your deadlines, work, and keep track of your to-do. All within one app.
+      %button.btn.btn-primary{:type => "button"}
+        = link_to "Read the reviews", :reviews,  class: 'btn.btn-outline-info', style: 'text-decoration:none; color:#FFFFFF'
+    .product-device.box-shadow.d-none.d-md-block
+    .product-device.product-device-2.box-shadow.d-none.d-md-block
+  .pricing-wrap
+    .pricing-container
+      .content
+        = render 'partials/pricing', :info => @info
+
+  .black-section
+    .spacing-wrapper-xlarge
+      .four-row
+        .four-row-item
+          %img{:src => "https://assets-global.website-files.com/58065afcec27c89278ba59f7/58caff59f27bbb4f3d050ad6_clock_icon.svg",:class => "four-row-image" }
+          .spacing-wrapper-medium.white
+            Pomodoro Timer
+        .four-row-item
+          %img{:src => "https://assets-global.website-files.com/58065afcec27c89278ba59f7/58caff59eb9ce343790a1371_Built%20by%20devs.svg",:class => "four-row-image" }
+          .spacing-wrapper-medium.white
+            Completely automatic
+        .four-row-item
+          %img{:src => "https://assets-global.website-files.com/58065afcec27c89278ba59f7/58caff59687a32db42399262_price_icon.svg",:class => "four-row-image" }
+          .spacing-wrapper-medium.white
+            No hidden charges
+        .four-row-item
+          %img{:src => "https://assets-global.website-files.com/58065afcec27c89278ba59f7/58caff59687a32db42399263_chart_icon.svg",:class => "four-row-image" }
+          .spacing-wrapper-medium.white
+            Personalised reports generated weekly
+
+  .white-wrap
+    %section.pt-8#scheduling
+    .container
+      .row
+        .col-lg-5.mb-5.mb-.lg-0.mt-lg-6
+          %h3.headline-eyebrow Automatic Timetable Scheduling
+          %h2.headline-small Work efficiently
+          %p We automatically generate a schedule to fit around your daily and weekly objectives. You tell us what you need to do and how long each objective may take, and we break it down into easily completed chunks for you.
+          .d-flex.mt-6
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/pricing&text=Feature 5', id: 'f5-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 5 via twitter"} do
+                %i.fab.fa-twitter.feature_5
+              = mail_to '', subject: 'Feature 5', id: 'f5-share-email', data: {link_name: "Link to Share Feature 5 via email"} do
+                %i.fa.fa-envelope
+        .col-md-10.offset-md-1.col-lg-6.pl-lg-7.pr-lg-3.position-relative
+          %img{:src => "https://www.qualtrics.com/m/assets/wp-content/uploads/2020/04/cx-img-1@2x.png",:class => "img-fluid" }
+
+      %section.pt-8#availability
+
+      .row
+        .col-12.col-sm-8.offset-sm-2.col-lg-5.offset-lg-0.position-relative.order-12.order-lg-1.justify-content-center
+          %img{:src => "https://www.qualtrics.com/m/assets/wp-content/uploads/2020/04/cx-img-1@2x.png",:class => "img-fluid" }
+        .col-lg-4.offset-lg-1.mt-lg-7.mb-xl-5.order-1.order-lg-12
+          %h3.headline-eyebrow Control your availability
+          %h2.headline-small Blacklist your quality time
+          %p Going to be away? On vacation? Or simply want to keep the evening to yourself? No problem. Blacklist periods of time where you don’t want to work and our algorithm will schedule your tasks around it.
+          .d-flex.mt-6
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/pricing&text=Feature 4', id: 'f4-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 5 via twitter"} do
+                %i.fab.fa-twitter.feature_4
+              = mail_to '', subject: 'Feature 4', id: 'f4-share-email', data: {link_name: "Link to Share Feature 4 via email"} do
+                %i.fa.fa-envelope
+      %section.pt-8
+    .jumbotron.jumbotron-fluid.bg-cx.mt-8.py-7
+      .container
+        .row
+          .col-md-5.offset-md-7.text-white
+            %h3.headline-eyebrow The problem
+            %h2.headline-small We're here for you
+            %p We’re all struggling to build a sense of routine in these unsettling times, so we have formulated a solution. Our goal is to save you time, and help you get around to your daily tasks without the hassle of organising everything by yourself.  WeSchedule is the first of its kind in automatic scheduling technology, give it a try today with the link below !
+            %a.btn.bg-btn.btn-arrow.pt2{ :"data-target" => "#registerInterestProTier", "data-toggle" => "modal", :type => "button", :id => "signUpProLink"} Sign up
+            = render 'partials/register_interest_modal', tier: "Pro"
+    %section.pt-8#flexibility
+    .container
+      .row
+        .col-lg-5.mb-5.mb-lg-0.pr-md-7
+          %h3.headline-eyebrow Flexibility
+          %h2.headline-small Easy-to-use on a whole new level.
+          %p don’t like the look of your automatically generated timetable? Our software has a simple drag and drop interface which allows you to shuffle things around to your liking.
+          .d-flex.mt-6
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/pricing&text=Feature 3', id: 'f3-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 5 via twitter"} do
+                %i.fab.fa-twitter.feature_3
+              = mail_to '', subject: 'Feature 3', id: 'f3-share-email', data: {link_name: "Link to Share Feature 3 via email"} do
+                %i.fa.fa-envelope
+        .col-md-10.col-lg-7
+          %img{:src => "https://www.qualtrics.com/m/assets/wp-content/uploads/2020/04/cx-img-1@2x.png",:class => "img-fluid" }
+      %section.pt-8#study-mode
+      .row
+        .col-lg-5.mb-5.mb-lg-0.offset-lg-1.offset-0.pl-md-6.order-1.order-lg-12
+          %h3.headline-eyebrow Study Mode
+          %h2.headline-small Sit down and focus.
+          %p We’ve incorporated the notorious pomodoro technique into our program, allowing you to take the right number of breaks while still getting your work done. Typically split into 25 minute focus sessions followed by 5 minute breaks, we help be productive and stop burning out.
+          .d-flex.mt-6
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/pricing&text=Feature 2', id: 'f2-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 5 via twitter"} do
+                %i.fab.fa-twitter.feature_2
+              = mail_to '', subject: 'Feature 2', id: 'f2-share-email', data: {link_name: "Link to Share Featur 2 via email"} do
+                %i.fa.fa-envelope
+        .col-md-10.col-lg-6.order-12.order-lg-1.position-relative
+          .row
+            .col-lg-6.col-12
+              %img{:src => "https://www.qualtrics.com/m/assets/wp-content/uploads/2020/05/cx-automated-actions@2x.png",:class => "img-fluid" }
+      %section.pt-8#personalised-reports
+      .row
+        .col-lg-5.mb-5.mb-.lg-0.mt-lg-6
+          %h3.headline-eyebrow Personalised reports
+          %h2.headline-small Review and improve
+          %p We present you with a personalised report of your week, helping you pinpoint your least efficient areas of work and giving you tips on how to improve.
+          .d-flex.mt-6
+            %div.share-buttons
+              = link_to 'https://twitter.com/share?url=localhost:3000/pricing&text=Feature 1', id: 'f1-share-twitter', target: "_blank", data: {link_name: "Link to Share Feature 5 via twitter"} do
+                %i.fab.fa-twitter.feature_1
+              = mail_to '', subject: 'Feature 1', id: 'f1-share-email', data: {link_name: "Link to Share Feature 1 via email"} do
+                %i.fa.fa-envelope
+        .col-md-10.offset-md-1.col-lg-6.pl-lg-7.pr-lg-3.position-relative
+          %img{:src => "https://www.qualtrics.com/m/assets/wp-content/uploads/2020/04/cx-img-1@2x.png",:class => "img-fluid" }
+
+      %section.pt-8
+
+
+
+
+
+
+  :coffee
+    $ ->
+      $('#show-flash').on 'click', ->
+        $.flashAlert('Hello world!', 'alert-success')

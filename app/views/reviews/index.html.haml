@@ -1,0 +1,8 @@
+- content_for :title, "Reviews"
+= stylesheet_link_tag "reviews.css"
+
+
+= render 'review_table'
+
+-if can? :create, Review
+    = render 'form'

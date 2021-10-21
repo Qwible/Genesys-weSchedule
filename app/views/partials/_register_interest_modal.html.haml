@@ -1,0 +1,20 @@
+.modal.fade{:id => "registerInterest#{tier}Tier","aria-hidden" => "true", "aria-labelledby" => "registerInterestLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h5#registerInterestLabel.modal-title You're too early!
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        Oh no! You may have caught us before we're ready.
+        No worries, feel free to register your email and we'll get back to you when there's more to see!
+      %form{"accept-charset" => "UTF-8", :action => "/registrations", :model => :registration, :method => "post"}
+        .input-group.mb-3
+        .input-group-prepend
+          %span#basic-addon1.input-group-text @
+          %input.form-control{"name" => "email", "aria-label" => "Email", :placeholder => "Email", :type => "email"}/
+          = hidden_field_tag :tier, tier
+          = hidden_field_tag :authenticity_token, form_authenticity_token
+        .modal-footer
+          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} No thanks
+          %button.btn.btn-primary.reg_interest{:type => "submit"} Register Interest!

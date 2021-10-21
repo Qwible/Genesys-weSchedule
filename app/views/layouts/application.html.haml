@@ -1,0 +1,152 @@
+!!!
+%html
+  %head
+    %title weSchedule  - #{content_for(:title)}
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %meta{ :'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}
+    = stylesheet_link_tag    "application", media: :all
+    = stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    = javascript_include_tag "application"
+    = favicon_link_tag '/favicon.ico'
+    = csrf_meta_tags
+
+  %body{ class: environment_notice_body_class }
+    .flash-messages
+      - flash.each do |name, msg|
+        - next unless name == 'alert' || name == 'notice'
+        .alert.fade.in
+          .container
+            - if name == 'notice'
+              = icon('fas', 'check', class: 'flash-success')
+            - else
+              = icon('fas', 'exclamation-triangle', class: 'flash-error')
+            = msg
+            %a{ href: '#', title: 'Hide this message', data: { dismiss: :alert } } Dismiss
+
+    %header
+      - if content_for(:title) == 'feedback' || 'maps'
+        .metrics-nav
+          .nav-wrapper
+            %nav#main-nav.navbar.navbar-dark.navbar-expand-lg.fixed-top
+              .nav-container
+                .navbar-header2
+                  = link_to :root, class: 'navbar-brand hidden-sm' do
+                    %img.header-logo{ alt: "home", src: "https://i.imgur.com/hF8YUxy.png"}
+                %button.navbar-toggler{ aria: { controls: "navbar-content", expanded: false, label: "Toggle navigation" }, data: { target: "#navbar-content", toggle: "collapse" }, type: "button" }
+                  %span.navbar-toggler-icon
+                .navbar-item
+                .collapse.navbar-collapse#navbar-content
+                  %ul.nav.navbar-nav
+                    = navbar_link_to :root, title: "Go to the home page", id: 'home-link', data: {link_name: "Link to home page"},identifier: :home do
+                      = icon 'fas', 'home'
+                      Home
+                    = navbar_link_to :questions, title: "Go to the FAQ page",id: 'faq-link', identifier: :FAQ, data: {link_name: "Link to FAQ page"} do
+                      FAQ
+                    = navbar_link_to :reviews, title: "Go to the review page",id: 'reviews-link', identifier: :reviews, data: {link_name: "Link to reviews page"} do
+                      Reviews
+                    = navbar_link_to :pricing, title: "Go to the review page",id: 'reviews-link', identifier: :reviews, data: {link_name: "Link to reviews page"} do
+                      Pricing
+                    - if user_signed_in?
+                      -if can? :manual_calendar, current_user
+                        = navbar_link_to :calendar, title: "Go to the timetable page",id: 'timetable-link',identifier: :timetable, data: {link_name: "Link to reviews page"} do
+                          myCalendar
+                      .nav-item.dropdown
+                        = link_to '#', aria: { haspopup: true, expanded: false }, data: { toggle: :dropdown }, id: 'navbar-user-link', class: ' main-link nav-link dropdown-toggle', role: 'button' do
+                          = icon 'fas', 'user', current_user.email
+                        .dropdown-menu
+                          - if can? :read, Visit
+                            = link_to :metrics, title: "Go to the metrics page",id: 'metrics-link',class: 'dropdown-item', identifier: :metrics, data: {link_name: "Link to metrics page"} do
+                              Metrics
+                          - else
+                            =link_to edit_user_registration_path, title: "My Profile", id: 'profile-link',class: 'dropdown-item', data: {link_name: "Link to profile page"} do
+                              My Profile
+                            -if can? :manage, UserPreference
+                              = link_to '/user_preferences', title: "Go to the preferences page",id: 'preferences-link',class: 'dropdown-item' do
+                                Preferences
+                          = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete, title: "Log out of the system" do
+                            = icon 'fas', 'sign-out-alt', 'Log out'
+
+                    - else
+                      .nav-item.dropdown
+                        = navbar_link_to new_user_session_path, title: "Go to the login page",id: 'navbar-user-link', class: 'login-link main-link nav-link',role: 'button' do
+                          Login
+      - else
+        %nav#main-nav.navbar.navbar-dark.navbar-expand-lg.fixed-top
+          .container
+            .navbar-header
+              = link_to :root, class: 'navbar-brand hidden-sm' do
+                %img.header-logo{ alt: "home", src: "https://i.imgur.com/hF8YUxy.png"}
+            %button.navbar-toggler{ aria: { controls: "navbar-content", expanded: false, label: "Toggle navigation" }, data: { target: "#navbar-content", toggle: "collapse" }, type: "button" }
+              %span.navbar-toggler-icon
+            .navbar-item
+            .collapse.navbar-collapse#navbar-content
+              %ul.nav.navbar-nav
+                = navbar_link_to :root, title: "Go to the home page", id: 'home-link', data: {link_name: "Link to home page"},identifier: :home do
+                  = icon 'fas', 'home'
+                  Home
+                = navbar_link_to :FAQ, title: "Go to the FAQ page",id: 'faq-link', identifier: :FAQ, data: {link_name: "Link to FAQ page"} do
+                  FAQ
+                = navbar_link_to :reviews, title: "Go to the review page",id: 'reviews-link', identifier: :reviews, data: {link_name: "Link to reviews page"} do
+                  Reviews
+                = navbar_link_to :pricing, title: "Go to the review page",id: 'reviews-link', identifier: :reviews, data: {link_name: "Link to reviews page"} do
+                  Pricing
+                - if user_signed_in?
+                  -if can? :manual_calendar, current_user
+                    = navbar_link_to :calendar, title: "Go to the timetable page",id: 'timetable-link',identifier: :timetable, data: {link_name: "Link to reviews page"} do
+                      myCalendar
+                  .nav-item.dropdown
+                    = link_to '#', aria: { haspopup: true, expanded: false }, data: { toggle: :dropdown }, id: 'navbar-user-link', class: ' main-link nav-link dropdown-toggle', role: 'button' do
+                      = icon 'fas', 'user', current_user.email
+                    .dropdown-menu
+                      - if can? :read, Visit
+                        = link_to :metrics, title: "Go to the metrics page",id: 'metrics-link',class: 'dropdown-item', identifier: :metrics, data: {link_name: "Link to metrics page"} do
+                          Metric
+                      - else
+                        =link_to edit_user_registration_path, title: "My Profile", id: 'profile-link',class: 'dropdown-item', data: {link_name: "Link to profile page"} do
+                          My Profile
+                        -if can? :manage, UserPreference
+                          = link_to '/user_preferences', title: "Go to the preferences page",id: 'preferences-link',class: 'dropdown-item' do
+                            Preferences
+                      = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete, title: "Log out of the system" do
+                        = icon 'fas', 'sign-out-alt', 'Log out'
+
+                - else
+                  .nav-item.dropdown
+                    = navbar_link_to new_user_session_path, title: "Go to the login page",id: 'navbar-user-link', class: 'login-link main-link nav-link',role: 'button' do
+                      Login
+
+
+    %main
+
+    - if params[:action] == 'product_pro'
+      #wrap
+        = yield
+    - elsif controller.controller_name == 'metrics'
+      #wrap
+        = yield
+    - elsif controller.controller_name == 'tasks'
+      = yield
+    - elsif params[:action] == 'maps'
+      = yield
+    - elsif params[:action] == 'home'
+      #wrap
+        = yield
+    - elsif params[:action] == 'registrations'
+      = yield
+
+    - else
+      #main-container.container
+        = yield
+  - if controller.controller_name != 'metrics'
+    - if controller.controller_name != 'tasks'
+      .footer-wrapper
+        %footer#footer
+          .container-footer
+            .floatleftcont
+              %p
+                &copy; #{Date.today.year}
+              = link_to 'epiGenesys', 'https://www.epigenesys.org.uk', target: '_blank', title: 'Go to the epiGenesys website'
+            .floatrightcont
+              = link_to :contact, title: "Go to the contact page", identifier: :contact, data: {link_name: "Link to contact page"} do
+                Contact Us

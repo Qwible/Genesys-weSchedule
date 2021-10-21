@@ -1,0 +1,14 @@
+.bg-white.rounded.shadow-sm.p-4.mb-5.rating-review-select-page
+  %h5.mb-4 Leave Review
+  -# frozen_string_literal: true
+  = simple_form_for Review.new do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+    .form-inputs
+      = f.input :first_name, required: true, input_html: { class: 'mb-4'}
+      = f.input :last_name, required: true,  input_html: { class: 'mb-4'}
+      = f.input :review, required: true
+      = f.input :anonymous
+    .form-actions
+      = f.button :submit, class: 'btn btn-primary btn-sm'

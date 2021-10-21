@@ -1,0 +1,408 @@
+body{
+    background:#dcdcdc;
+    }
+    .total-like-user-main a {
+        display: inline-block;
+        margin: 0 -17px 0 0;
+    }
+    .total-like {
+        border: 1px solid;
+        border-radius: 50px;
+        display: inline-block;
+        font-weight: 500;
+        height: 34px;
+        line-height: 33px;
+        padding: 0 13px;
+        vertical-align: top;
+    }
+
+    .n_ratings {
+        display: inline-block;
+        font-weight: 300;
+        height: 34px;
+        line-height: 33px;
+        vertical-align: center;
+      }
+    .total-interest {
+        border: 1px solid;
+        border-radius: 50px;
+        display: inline-block;
+        font-weight: 500;
+        height: 34px;
+        margin-left: 10px;
+        border-color: green;
+        color: green;
+        line-height: 33px;
+        padding: 0 13px;
+        vertical-align: top;
+    }
+    .faq{
+        flex-grow: 1;
+        max-width:100%;
+        padding: 0px 0px;
+    }
+    .useful{
+        display: inline-block;
+        font-weight: 500;
+        height: 34px;
+        line-height: 33px;
+        padding: 0 13px;
+        vertical-align: top;
+        float:right;
+    }
+    .helpful-div{
+        display: inline-block;
+
+        margin-right:10px;
+
+        font-size:15px;
+
+    }
+    .imagebutton{
+        font-size:0;
+        width:30px;
+        height:30px;
+        border: none;
+        background: none;
+    }
+    .thumbupdown{
+        width:20px;
+        height:20px;
+        margin-left:-7px;
+        margin-top:-2px;
+    }
+    .restaurant-detailed-ratings-and-reviews hr {
+        margin: 0 -24px;
+    }
+    .graph-star-rating-header .star-rating {
+        font-size: 17px;
+    }
+    .progress {
+        background: #f2f4f8 none repeat scroll 0 0;
+        border-radius: 0;
+        height: 30px;
+    }
+    .rating-list {
+        display: inline-flex;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .rating-list-left {
+        height: 16px;
+        line-height: 29px;
+        width: 10%;
+    }
+    .rating-list-center {
+        width: 80%;
+    }
+    .rating-list-right {
+        line-height: 29px;
+        text-align: right;
+        width: 10%;
+    }
+    .restaurant-slider-pics {
+        bottom: 0;
+        font-size: 12px;
+        left: 0;
+        z-index: 999;
+        padding: 0 10px;
+    }
+    .restaurant-slider-view-all {
+        bottom: 15px;
+        right: 15px;
+        z-index: 999;
+    }
+    .offer-dedicated-nav .nav-link.active,
+    .offer-dedicated-nav .nav-link:hover,
+    .offer-dedicated-nav .nav-link:focus {
+        border-color: #3868fb;
+        color: #3868fb;
+    }
+    .offer-dedicated-nav .nav-link {
+        border-bottom: 2px solid #fff;
+        color: #000000;
+        padding: 16px 0;
+        font-weight: 600;
+    }
+    .offer-dedicated-nav .nav-item {
+        margin: 0 37px 0 0;
+    }
+    .restaurant-detailed-action-btn {
+        margin-top: 12px;
+    }
+    .restaurant-detailed-header-right .btn-success {
+        border-radius: 3px;
+        height: 45px;
+        margin: -18px 0 18px;
+        min-width: 130px;
+        padding: 7px;
+    }
+    .text-black {
+        color: #000000;
+    }
+    .icon-overlap {
+        bottom: -23px;
+        font-size: 74px;
+        opacity: 0.23;
+        position: absolute;
+        right: -32px;
+    }
+    .menu-list img {
+        width: 41px;
+        height: 41px;
+        object-fit: cover;
+    }
+    .restaurant-detailed-header-left img {
+        width: 88px;
+        height: 88px;
+        border-radius: 3px;
+        object-fit: cover;
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)!important;
+    }
+    .reviews-members .media .mr-3 {
+        width: 56px;
+        height: 56px;
+        object-fit: cover;
+    }
+    .rounded-pill {
+        border-radius: 50rem!important;
+    }
+    .total-like-user {
+        border: 2px solid #fff;
+        height: 34px;
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)!important;
+        width: 34px;
+    }
+    .total-like-user-main a {
+        display: inline-block;
+        margin: 0 -17px 0 0;
+    }
+    .total-like {
+        border: 1px solid;
+        border-radius: 50px;
+        display: inline-block;
+        font-weight: 500;
+        height: 34px;
+        line-height: 33px;
+        padding: 0 13px;
+        vertical-align: top;
+    }
+    .restaurant-detailed-ratings-and-reviews hr {
+        margin: 0 -24px;
+    }
+    .graph-star-rating-header .star-rating {
+        font-size: 17px;
+    }
+    .progress {
+        background: #f2f4f8 none repeat scroll 0 0;
+        border-radius: 0;
+        height: 30px;
+    }
+    .rating-list {
+        display: inline-flex;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .rating-list-left {
+        height: 16px;
+        line-height: 29px;
+        width: 10%;
+    }
+    .rating-list-center {
+        width: 80%;
+    }
+    .rating-list-right {
+        line-height: 29px;
+        text-align: right;
+        width: 10%;
+    }
+    .restaurant-slider-pics {
+        bottom: 0;
+        font-size: 12px;
+        left: 0;
+        z-index: 999;
+        padding: 0 10px;
+    }
+    .restaurant-slider-view-all {
+        bottom: 15px;
+        right: 15px;
+        z-index: 999;
+    }
+
+    .progress {
+        background: #f2f4f8 none repeat scroll 0 0;
+        border-radius: 0;
+        height: 30px;
+    }
+
+    .faqHeader {
+        font-size: 27px;
+        margin: 20px;
+    }
+
+    .panel-heading [data-toggle="collapse"]:after {
+        /*font-family: 'Glyphicons Halflings';*/
+        content: url("https://i.imgur.com/23kPPzK.png");   /*https://i.imgur.com/AmwtPKa.png*/
+        float: right;
+        color: #F58723;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .panel-heading [data-toggle="collapse"].collapsed:after {
+        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+        content: url("https://i.imgur.com/dNsGkcL.png");   /*https://i.imgur.com/AmwtPKa.png*/
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        margin-right:5px;
+        transform: rotate(90deg);
+        color: #454444;
+    }
+    .panel-title{
+        margin-top:0;
+        margin-bottom:0;
+        font-size:16px;
+        color:inherit;
+
+    }
+    .panel {
+        margin-bottom: 0px;
+        background-color: #fff;
+        border: 1px solid transparent;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+    .panel-default {
+        border-color: #ddd;
+    }
+    .panel-heading {
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    .panel-default > .panel-heading {
+        color: #333;
+        background-color: #f5f5f5;
+        border-color: #ddd;
+    }
+    .panel-body{
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+        padding: 15px;
+    }
+    .panel-default .panel-heading{
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+    }
+    .panel-group .panel + .panel {
+        margin-top: 5px;
+    }
+    .panel-default {
+        border-color: #ddd;
+    }
+    .question-box{
+        padding:10px 32px;
+        margin-bottom: 1rem !important;
+        background-color:#e9ecef ;
+    }
+    .question-card{
+        margin-bottom:20px;
+    }
+    .question-text{
+        display:inline-block;
+    }
+    .order-by{
+        display:inline-block;
+        float:right;
+        margin-top:24px;
+        margin-right:24px;
+    }
+    .answer-box{
+        padding-bottom:5px !important;
+    }
+    .clear-box{
+        display:block;
+        margin-bottom:14px;
+    }
+    .contact_content{
+        margin:20px;
+    }
+
+
+      #metrics-link a{
+        color: #007bff;
+        text-decoration: none;
+        background-color: transparent;
+        }
+      #metrics-link a:hover{
+          background-color:transparent;
+          color: #0056b3;
+          text-decoration: underline;
+
+      }
+.contact_content h2{
+    font-weight:bold;
+    margin-bottom:25px;
+}
+.contact_content h4{
+    font-size:1rem;
+    font-weight:bold;
+    margin-top:25px;
+    margin-bottom:10px;
+}
+.contact_content p{
+    color:#909090;
+}
+.contact_content .subheader-contact p{
+    font-size:1.3rem;
+    color:#484848;
+}
+
+.container-feedback{
+    position:absolute;
+    width:70%;
+    top:100px;
+    left:260px;
+    margin-left: calc(15% - 130px);
+}
+
+.pagination {
+  text-align: center;
+  cursor: default; }
+.pagination a, .pagination span {
+  padding: 0.2em 0.3em; }
+.pagination .disabled a{
+  color: #aaaaaa; }
+.pagination .active a{
+  font-style: normal;
+  font-weight: bold;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+}
+.pagination a {
+  text-decoration: none;
+  color: black; }
+.pagination a:hover, .pagination a:focus {
+  text-decoration: underline; }

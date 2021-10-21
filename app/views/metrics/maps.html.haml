@@ -1,0 +1,17 @@
+- content_for :title, "Maps"
+= stylesheet_link_tag "dashboard.css"
+= javascript_include_tag "https://www.gstatic.com/charts/loader.js" 
+
+.wrapper
+  = render 'sidebar'
+  .main-panel
+    
+    .content
+      .row
+        .col-md-12
+          .card
+            .card-header
+              %h5.card-title Visits by geographic location
+              %p.card-category Lifetime performance
+            .card-body
+              = geo_chart Visit.group(:location).count 

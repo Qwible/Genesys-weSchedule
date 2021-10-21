@@ -1,0 +1,39 @@
+- content_for :title, "contact"
+= stylesheet_link_tag "reviews.css"
+.bg-white.rounded.shadow-sm.p-4.mb-4.restaurant-detailed-ratings-and-reviews
+  .container
+    #accordion.panel-group
+      .contact_content
+        %h2
+          How Can We Help?
+        .subheader-contact
+          %p
+            Take a look below to find a topic related to your inquiry. If you don't find what you need, feel free to reach
+            out to us via email.
+        %h4
+          We might have answered your query already.
+        %p
+          Have you read our
+          = link_to :questions, title: "Go to the FAQ page",id: 'metrics-link', identifier: :questions, data: {link_name: "Link to FAQ page"} do
+            FAQ?
+          It answers some of the most common questions and troubleshooting problems.
+        <hr>
+        %h4
+          Get Inspired.
+        %p
+          Take a look at our
+          = link_to :reviews, title: "Go to the review page",id: 'metrics-link', identifier: :reviews, data: {link_name: "Link to review page"} do
+            reviews
+          to discover what our users think of mySchedule.
+
+
+        <hr>
+        %h4
+          Get in touch.
+        %p
+          We love receiving feedback, submit the anonymous form below and tell us what you think of our service!
+        <hr>
+
+
+- if can? :create, Feedback
+  = render 'feedbacks/new'
