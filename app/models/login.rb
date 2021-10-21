@@ -2,7 +2,7 @@
 #
 # Table name: logins
 #
-#  id           :bigint           not null, primary key
+#  id           :integer          not null, primary key
 #  account_type :string
 #  day          :integer
 #  email        :string

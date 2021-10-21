@@ -4,7 +4,7 @@
 #
 # Table name: reviews
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  anonymous  :boolean
 #  first_name :string           not null
 #  hidden     :boolean          default(FALSE)

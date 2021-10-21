@@ -4,7 +4,7 @@
 #
 # Table name: questions
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  answer     :string
 #  date       :string
 #  interest   :integer          default(0)

@@ -12,13 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_05_13_090115) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "calendar_events", force: :cascade do |t|
     t.datetime "event_start"
     t.datetime "event_end"
-    t.bigint "task_id"
+    t.integer "task_id"
     t.boolean "auto_generated"
     t.boolean "late_alert"
     t.index ["task_id"], name: "index_calendar_events_on_task_id"
@@ -48,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_05_13_090115) do
   end
 
   create_table "link_clicks", force: :cascade do |t|
-    t.bigint "visit_id"
+    t.integer "visit_id"
     t.string "link_name"
     t.string "link_css_id"
     t.text "url"
@@ -122,7 +119,7 @@ ActiveRecord::Schema.define(version: 2021_05_13_090115) do
     t.boolean "schedule", default: false
     t.datetime "start_datetime"
     t.datetime "end_datetime"
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -131,7 +128,7 @@ ActiveRecord::Schema.define(version: 2021_05_13_090115) do
     t.integer "workday_end"
     t.boolean "alternating_tasks"
     t.boolean "weekends", default: false
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_user_preferences_on_user_id"
   end
 

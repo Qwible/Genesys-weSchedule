@@ -4,7 +4,7 @@
 #
 # Table name: registrations
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  email      :string
 #  tier       :string
 #  created_at :datetime         not null

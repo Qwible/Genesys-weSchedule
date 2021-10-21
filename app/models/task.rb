@@ -2,7 +2,7 @@
 #
 # Table name: tasks
 #
-#  id             :bigint           not null, primary key
+#  id             :integer          not null, primary key
 #  end_datetime   :datetime
 #  length         :integer
 #  name           :string
@@ -11,7 +11,7 @@
 #  start_datetime :datetime
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  user_id        :bigint           not null
+#  user_id        :integer          not null
 #
 # Indexes
 #
@@ -19,7 +19,7 @@
 #
 # Foreign Keys
 #
-#  fk_rails_...  (user_id => users.id) ON DELETE => cascade
+#  user_id  (user_id => users.id) ON DELETE => cascade
 #
 class Task < ApplicationRecord
     belongs_to :user

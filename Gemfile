@@ -3,11 +3,11 @@
 source 'https://rubygems.org'
 ruby '2.6.6'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
-git_source(:gitlab) { |repo_name| "git@git.shefcompsci.org.uk:#{repo_name}.git" }
+#git_source(:gitlab) { |repo_name| "git@git.shefcompsci.org.uk:#{repo_name}.git" }
 
 gem 'airbrake', github: 'epigenesys/airbrake', branch: 'airbrake-v4'
 gem 'epi_js'
-gem 'rubycas-client', gitlab: 'gems/rubycas-client'
+#gem 'rubycas-client', gitlab: 'gems/rubycas-client'
 
 gem 'activerecord-session_store'
 gem 'bootsnap'
